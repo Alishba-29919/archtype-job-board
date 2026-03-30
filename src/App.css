@@ -9,7 +9,7 @@ body {
     font-family: Arial, sans-serif;
     background: linear-gradient(to right, #ff8668, #ff8efb);
 }
-html, body {
+html{
     scroll-behavior: smooth;
 }
 /* Navbar Styling */
