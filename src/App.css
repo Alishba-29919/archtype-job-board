@@ -1,0 +1,646 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    min-height: 100vh;
+    /* height: 100vh; */
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #ff8668, #ff8efb);
+    /* padding: 50px 10px; */
+}
+
+
+
+
+
+/* Navbar Styling */
+/* --- Final Navbar Responsive CSS --- */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    height: 40px;
+    background: #ffffff !important; /* Force white background */
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+}
+
+.nav-logo { font-weight: 800; font-size: 12px; color: #000; }
+.nav-links { display: flex; gap: 30px; list-style: none; }
+.nav-links a { text-decoration: none; color: #666; font-size: 12px; font-weight: 500; }
+
+.nav-actions { display: flex;
+    
+    
+    align-items: center;
+     gap: 15px; }
+.nav-actions button{ 
+     background-color: black;
+        padding: 4px 10px;
+        color: white;
+        border: none;
+        border-radius: 5px;
+    
+    
+     }
+
+/* Hamburger Style (Yeh lazmi nazar ayega) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.line {
+    width: 25px;
+    height: 2px;
+    background-color: #000 ; /* Pure black icon */
+    display: block;
+    transition: 0.3s;
+}
+/* Desktop par mobile buttons nazar nahi aane chahiye */
+.mobile-menu-btns {
+    display: none;
+}
+/* MOBILE VIEW (600px se niche) */
+@media (max-width: 600px) {
+    .hamburger { display: flex ; } /* Icon show karwao */
+
+    .nav-actions .btn-secondary, 
+    .nav-actions .btn-primary { display: none; } /* Desktop buttons hide */
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 40px 20px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        z-index: 999;
+    }
+
+    .nav-links.open { display: flex ; } /* Click par menu khulega */
+
+    .mobile-menu-btns {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+    }
+    
+    .mobile-menu-btns button {
+        padding: 10px;
+        background-color: black;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    /* Animation */
+    .line.active:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .line.active:nth-child(2) { opacity: 0; }
+    .line.active:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+}
+
+
+.page-content {
+    padding: 100px 5%;
+    text-align: center;
+    min-height: 90vh;
+    animation: fadeIn 0.5s ease-in-out; /* Smooth transition effect */
+}
+
+.page-content h1 span {
+    color: #888;
+    font-weight: 400;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* nav end */
+
+
+
+/* header part */
+
+
+.page-header { text-align: center; padding: 80px 20px; }
+.badge-top { display: inline-block; padding: 6px 12px; border: 1px solid var(--border); border-radius: 50px; font-size: 12px; font-weight: 600; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+.page-header h1 { font-size: 48px; font-weight: 800; letter-spacing: -2px; line-height: 1; }
+.page-header h1 {
+    font-size: 42px; /* Pehle 48px tha, thoda chota kiya for elegance */
+    letter-spacing: -1.5px;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+.page-header p { font-size: 18px; color: var(--muted); margin-top: 15px; }
+
+
+
+
+
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 4 columns */
+    max-width: 1100px; /* Container tight rakha */
+    margin: 0 auto;
+    padding: 60px 20px;
+    gap: 30px; /* Space barha di */
+}
+
+
+/* media query */
+@media (max-width: 1024px) {
+    .parent {
+        grid-template-columns: 1fr 1fr 1fr; /* Yahan change karna sense banta hai */
+    }
+}
+
+@media (max-width: 672px) {
+    .parent {
+        grid-template-columns: 1fr 1fr; 
+        gap: 10px;
+    }
+}
+
+@media (max-width: 428px) {
+    .parent {
+        grid-template-columns: 1fr; 
+    }
+}
+
+
+
+.card {
+    /* ...purani styles... */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation smooth hogi */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Card thoda upar uthega */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); /* Shadow aur soft ho jayegi */
+}
+
+
+
+.card{
+    height: 300px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    overflow: hidden;
+}
+.top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+.top img{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: black;
+    object-fit: cover;
+    border: 1px solid black;
+    flex-shrink: 0;
+}
+.mid{
+    flex: 1;
+    overflow: hidden;
+}
+.mid h3{
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+.suggest{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+.suggest h6{
+    font-weight: bold;
+    white-space: nowrap;
+}
+.suggest p{
+    font-size: 0.75rem;
+    color: rgb(117, 111, 111);
+}
+.mid-btn{
+    display: flex;
+    gap: 8px;
+    flex-wrap: nowrap;
+    margin-bottom: 12px;
+}
+.mid-btn button{
+    padding: 5px 7px;
+    background-color: #d1d0d0;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.65rem;
+    white-space: nowrap;
+}
+.bottom{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: auto;
+}
+.left-bottom h4{
+    margin-bottom: 4px;
+    font-size: 1rem;
+}
+.left-bottom p{
+    font-size: 0.45rem;
+    color: rgb(117, 111, 111);
+}
+.right-bottom button{
+    padding: 8px 10px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    font-size: 0.6rem;
+}
+
+
+/* opening part */
+
+.openings-page-wrapper {
+    background: linear-gradient(to right, #ff8668, #ff8efb);
+    min-height: 100vh;
+    padding: 120px 5% 100px;
+    margin-top: -70px;
+    font-family: 'Inter', sans-serif; /* Ya jo bhi aap use kar rahi hain */
+}
+
+.openings-header {
+    text-align: center;
+    margin-bottom: 80px;
+    color: #fff;
+}
+
+.badge-top-premium {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(5px);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.hero-title {
+    font-size: clamp(45px, 8vw, 95px);
+    font-weight: 900;
+    letter-spacing: -4px;
+    line-height: 0.9;
+    text-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+.hero-title span {
+    font-weight: 200;
+    opacity: 0.8;
+}
+
+.hero-subtitle {
+    max-width: 550px;
+    margin: 25px auto;
+    font-size: 18px;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+.cards-stack {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.opening-card-container {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid transparent;
+}
+
+.opening-card-container:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 35px 60px -15px rgba(0,0,0,0.15);
+    border-color: rgba(255, 134, 104, 0.2);
+}
+
+.card-info-block {
+    flex: 1 1 200px;
+}
+
+.job-id-loc {
+    font-size: 12px;
+    font-weight: 800;
+    color: #ff8668;
+    letter-spacing: 2px;
+}
+
+.job-title {
+    font-size: 28px;
+    font-weight: 800;
+    margin: 10px 0;
+    letter-spacing: -1px;
+    color: #111;
+}
+
+.tags-row {
+    display: flex;
+    gap: 8px;
+}
+
+.job-tag {
+    font-size: 9px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    color: #666;
+    text-transform: uppercase;
+}
+
+.card-desc-block {
+    flex: 2 1 350px;
+    border-left: 1px solid #f0f0f0;
+    padding-left: 30px;
+}
+
+.job-desc {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.job-perks {
+    font-size: 12px;
+    font-weight: 600;
+    color: #222;
+}
+
+.job-perks span {
+    font-weight: 400;
+    color: #888;
+}
+
+.card-action-block {
+    flex: 1 1 180px;
+    text-align: right;
+}
+
+.job-salary {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: #000;
+}
+
+.inquire-btn {
+    width: 100%;
+    padding: 14px;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.inquire-btn:hover {
+    background: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    .card-desc-block {
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid #f0f0f0;
+        padding-top: 20px;
+    }
+    
+    .card-action-block {
+        text-align: left;
+        width: 100%;
+    }
+    
+    .opening-card-container {
+        padding: 30px;
+    }
+}
+
+
+/* directory part */
+
+.directory-wrapper {
+    background: linear-gradient(to right, #ff8668, #ff8efb);
+    min-height: 100vh;
+    padding: 150px 10%;
+    text-align: left;
+    color: #fff;
+    margin-top: -70px;
+}
+
+.directory-title {
+    font-size: clamp(40px, 8vw, 100px);
+    font-weight: 900;
+    letter-spacing: -5px;
+    margin-bottom: 100px;
+}
+
+.directory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 80px;
+}
+
+.directory-item {
+    border-left: 1px solid rgba(255, 255, 255, 0.4);
+    padding-left: 30px;
+    transition: all 0.3s ease;
+}
+
+.directory-item:hover {
+    border-left: 3px solid #fff;
+    padding-left: 35px;
+}
+
+.partner-index {
+    font-size: 11px;
+    letter-spacing: 3px;
+    opacity: 0.6;
+    text-transform: uppercase;
+}
+
+.partner-name {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 20px 0;
+}
+
+.partner-desc {
+    font-size: 16px;
+    line-height: 1.6;
+    opacity: 0.8;
+    font-weight: 300;
+}
+
+/* philosophy part */
+
+.philosophy-wrapper {
+    background: #000;
+    color: #fff;
+    min-height: 120vh;
+    margin-top: -70px;
+    padding: 180px 10% 120px;
+    text-align: left;
+}
+
+.philosophy-header {
+    max-width: 900px;
+    margin-bottom: 120px;
+}
+
+/* Yahan wahi badge style hai jo aap use kar rahi hain */
+.philosophy-header .badge-top {
+    display: inline-block;
+    padding: 8px 20px;
+    border: 1px solid #333;
+    color: #888;
+    margin-bottom: 30px;
+    font-size: 10px;
+    letter-spacing: 3px;
+    border-radius: 50px;
+}
+
+.philosophy-title {
+    font-size: clamp(45px, 8vw, 100px);
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -4px;
+    margin-bottom: 40px;
+}
+
+.title-muted {
+    color: #444;
+    font-weight: 300;
+}
+
+.philosophy-subtitle {
+    font-size: 22px;
+    color: #888;
+    line-height: 1.6;
+    max-width: 750px;
+    font-weight: 300;
+}
+
+/* Grid Layout */
+.philosophy-content-stack {
+    display: grid;
+    gap: 120px;
+}
+
+.content-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 50px;
+    border-top: 1px solid #1a1a1a;
+    padding-top: 60px;
+}
+
+.section-number {
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.section-text {
+    color: #aaa;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* Footer Section */
+.philosophy-footer {
+    margin-top: 150px;
+    text-align: center;
+    border-top: 1px solid #1a1a1a;
+    padding-top: 80px;
+}
+
+.footer-quote {
+    font-size: 24px;
+    font-weight: 300;
+    color: #444;
+}
+
+.footer-brand {
+    margin-top: 20px;
+    color: #222;
+    letter-spacing: 5px;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+/* Responsive Tablet/Mobile */
+@media (max-width: 768px) {
+    .philosophy-wrapper {
+        padding-top: 120px;
+    }
+    
+    .content-row {
+        gap: 20px;
+    }
+    
+    .section-number {
+        font-size: 24px;
+    }
+}
+
+
