@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { motion } from 'framer-motion';
 import Cards from "./components/Cards";
 import Navbar from "./components/Navbar";
 import "./App.css";
@@ -17,9 +18,32 @@ function App() {
         <Route path="/" element={
           <>
             <header className="page-header">
-              <div className="badge-top">Premium Opportunities</div>
-              <h1>Find your next <br /><span>Executive Move.</span></h1>
-              <p>A curated list of high-impact roles for industry leaders.</p>
+             <motion.div initial={{ opacity: 0, y: 50 }} 
+  animate={{ opacity: 1, y: 0 }} 
+  transition={{ duration: 1, ease: 'easeOut' }}>Premium Opportunities</motion.div>
+
+              {/* <div className="badge-top">Premium Opportunities</div> */}
+              <motion.h1 
+  initial={{ opacity: 0, y: 50 }} 
+  animate={{ opacity: 1, y: 0 }} 
+  transition={{ duration: 1, ease: 'easeOut' }}
+>
+  Luxury Job Board
+</motion.h1>
+              <motion.h1 
+  initial={{ opacity: 0, y: 50 }} 
+  animate={{ opacity: 1, y: 0 }} 
+  transition={{ duration: 1, ease: 'easeOut' }}
+>
+  Find your next <br /><span>Executive Move.</span>
+</motion.h1>
+               <motion.p
+  initial={{ opacity: 0, y: 50 }} 
+  animate={{ opacity: 1, y: 0 }} 
+  transition={{ duration: 1, ease: 'easeOut' }}
+>
+  A curated list of high-impact roles for industry leaders.
+</motion.p>
             </header>
 
             <div className="parent">
