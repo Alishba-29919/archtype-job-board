@@ -1,6 +1,6 @@
-# Archtype — Executive Career Network 2026
+# Executive Career Network 
 
-Archtype is a premium, curated platform designed for high-level talent and visionary companies. Moving away from the noise of traditional job boards, it focuses on high-impact roles, discretion, and human-led curation.
+This job board is a premium, curated platform designed for high-level talent and visionary companies. Moving away from the noise of traditional job boards, it focuses on high-impact roles, discretion, and human-led curation.
 
 ## ✨ Key Features
 - **Editorial Design:** A high-end, magazine-style layout using fluid typography (`clamp()`).
